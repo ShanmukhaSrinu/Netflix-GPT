@@ -2,6 +2,10 @@
 
  - create vite@latest app (command :npm vite@latest netflix-gpt)
  - Configured Tailwind
+ - Header
+ - Login Form(Sign In Form) 
+ - Sign Up Form
+ - Handle Form Validations
 
 
  # Features
@@ -20,5 +24,5 @@
     - Movie Suggestions
 
  
- 
+
  
