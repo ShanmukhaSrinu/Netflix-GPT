@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <div className="
       absolute top-0 w-full z-50 
-      bg-gradient-to-b from-black via-black/50 to-transparent
+      bg-linear-to-b from-black via-black/50 to-transparent
       transition-all duration-300
     ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
