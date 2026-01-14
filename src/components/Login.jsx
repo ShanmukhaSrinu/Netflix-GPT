@@ -7,15 +7,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userslice";
+import { NETFLIX_BACKGROUND_SRC, NETFLIX_BACKGROUND_SRCSET } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
 
   const [errormessage, seterrormessage] = useState(null);
-  const navigate = useNavigate();
+  
   const dispatch=useDispatch()
 
   // useRef hook is reference to our inputdata
@@ -52,9 +52,9 @@ const Login = () => {
           })
             .then(() => {
               // Profile updated!
-              const {uid,email,displayName}=user
-              dispatch(addUser({uid: uid, email: email,displayName:displayName}))
-              navigate("/browse");
+              const { uid, email, displayName } = auth.currentUser;
+              dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+              
             })
             .catch((error) => {
               // An error occurred
@@ -76,8 +76,8 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+          // console.log(user);
+         
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -94,8 +94,8 @@ const Login = () => {
 
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/e393bb3f-261f-43d1-99bb-16a157885615/web/IN-en-20260105-TRIFECTA-perspective_2802b120-4b8c-44a5-8fb9-617a728f4ec6_large.jpg"
-          srcSet="https://assets.nflxext.com/ffe/siteui/vlv3/e393bb3f-261f-43d1-99bb-16a157885615/web/IN-en-20260105-TRIFECTA-perspective_2802b120-4b8c-44a5-8fb9-617a728f4ec6_large.jpg 2000w, https://assets.nflxext.com/ffe/siteui/vlv3/e393bb3f-261f-43d1-99bb-16a157885615/web/IN-en-20260105-TRIFECTA-perspective_2802b120-4b8c-44a5-8fb9-617a728f4ec6_medium.jpg 1279w, https://assets.nflxext.com/ffe/siteui/vlv3/e393bb3f-261f-43d1-99bb-16a157885615/web/IN-en-20260105-TRIFECTA-perspective_2802b120-4b8c-44a5-8fb9-617a728f4ec6_small.jpg 959w"
+          src={NETFLIX_BACKGROUND_SRC}
+          srcSet={NETFLIX_BACKGROUND_SRCSET}
           alt=""
           aria-hidden="true"
           className="default-ltr-iqcdef-cache-19j6xtr"
