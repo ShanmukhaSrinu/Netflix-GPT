@@ -48,12 +48,12 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
+            photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt0RN1rfgQ3wvx01TOc_5dyRGoW8SRGWTtmg&s",
           })
             .then(() => {
               // Profile updated!
-              const { uid, email, displayName } = auth.currentUser;
-              dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+              const { uid, email, displayName,photoURL } = auth.currentUser;
+              dispatch(addUser({ uid: uid, email: email, displayName: displayName ,photoURL:photoURL}));
               
             })
             .catch((error) => {
@@ -143,9 +143,9 @@ const Login = () => {
         </button>
 
         {/* toggel feature */}
-        <p className="py-4 cursor-pointer " onClick={toggeleSignInForm}>
+        <p className="py-4 cursor-pointer text-red-500 hover:underline " onClick={toggeleSignInForm}>
           {isSignInForm
-            ? "New to Netflix? Sign up now "
+            ? "New to Netflix?  Sign up now "
             : "Already registered? Sign In now"}
         </p>
       </form>

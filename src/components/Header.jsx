@@ -29,8 +29,8 @@ const Header = () => {
   const unsubscribe=  onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in or signed up
-        const { uid, email, displayName } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        const { uid, email, displayName,photoURL } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName ,photoURL:photoURL}));
         navigate("/browse")
       } else {
         // User is signed out
@@ -50,7 +50,7 @@ const Header = () => {
       bg-linear-to-b from-black via-black/50 to-transparent
       transition-all duration-300
     ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items justify-between">
         {/* Netflix Logo */}
         <img
           src={NETFLIX_URL}
@@ -61,6 +61,10 @@ const Header = () => {
         {/* Right side - User & Sign Out */}
 
        {user &&<div className="flex items-center gap-4">
+
+        <div className="w-10">
+          <img src={user.photoURL} alt="profile logo" />
+        </div>
         
           {/* Sign Out Button */}
           <button onClick={handleSignOut}
