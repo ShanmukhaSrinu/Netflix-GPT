@@ -14,3 +14,10 @@
 
 export const GETNOWPLAYINGMOVIES="https://api.themoviedb.org/3/movie/now_playing?page=1"
 
+export const  IMG_CDN_URL="https://image.tmdb.org/t/p/w500"
+
+export const GETPOPULARMOVIES="https://api.themoviedb.org/3/movie/popular?page=1"
+
+export const GETTOPRATEDMOVIES="https://api.themoviedb.org/3/movie/top_rated?page=1"
+
+export const GETUPCOMINGMOVIES="https://api.themoviedb.org/3/movie/upcoming?page=1"
