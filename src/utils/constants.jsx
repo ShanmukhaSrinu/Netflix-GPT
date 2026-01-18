@@ -21,3 +21,11 @@ export const GETPOPULARMOVIES="https://api.themoviedb.org/3/movie/popular?page=1
 export const GETTOPRATEDMOVIES="https://api.themoviedb.org/3/movie/top_rated?page=1"
 
 export const GETUPCOMINGMOVIES="https://api.themoviedb.org/3/movie/upcoming?page=1"
+
+export const  SUPPORTED_LANGUAGES=[
+  {identifier:"en",name:"English"},
+  {identifier:"telugu",name:"Telugu"},
+  {identifier:"hindi",name:"Hindi"},
+  {identifier:"tamil",name:"Tamil"},
+  {identifier:"japanese",name:"Japanese"}
+]
