@@ -65,7 +65,7 @@ const Login = () => {
           const errorCode = error.code; 
           const errorMessage = error.message;
           seterrormessage(errorCode + "-" + errorMessage);
-          //  seterrormessage("This Email is already exist");
+           seterrormessage("This Email is already exist");
         });
     } else {
       // Sign In logic
@@ -82,7 +82,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          seterrormessage(errorCode + "-" + errorMessage);
+          seterrormessage("Please check your email and password");
           // seterrormessage("Please Sign Up First");
         });
     }
@@ -92,21 +92,21 @@ const Login = () => {
     <div>
       <Header />
 
-      <div className="absolute">
+      <div className="absolute w-full h-full">
         <img
           src={NETFLIX_BACKGROUND_SRC}
           srcSet={NETFLIX_BACKGROUND_SRCSET}
           alt=""
           aria-hidden="true"
-          className="default-ltr-iqcdef-cache-19j6xtr"
-        ></img>
+          className="w-full h-full object-cover"
+        />
       </div>
-      {/* ------- Form       */}
+      {/* ------- Form ------- */}
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="bg-opacity-50 relative text-white  w-3/12 top-36 mx-auto p-12 bg-black/80  right-0 left-0 "
+        className="bg-opacity-50 relative text-white w-11/12 sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-3/12 mx-auto p-6 sm:p-8 md:p-12 top-16 sm:top-24 md:top-36 bg-black/80 right-0 left-0 rounded-lg"
       >
-        <h1 className="font-bold text-white text-3xl py-4">
+        <h1 className="font-bold text-white text-xl sm:text-2xl md:text-3xl py-2 sm:py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 
@@ -115,7 +115,7 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-4 my-4  w-full bg-gray-700"
+            className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-gray-700 rounded-sm text-sm sm:text-base"
           />
         )}
 
@@ -123,30 +123,35 @@ const Login = () => {
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-4 my-4  w-full bg-gray-700"
+          className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-gray-700 rounded-sm text-sm sm:text-base"
         />
 
         <input
           ref={password}
           type="password"
-          placeholder="Password"
-          className="p-4 my-4  w-full bg-gray-700"
+          placeholder="Eg: Shannu123@"
+          className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-gray-700 rounded-sm text-sm sm:text-base"
         />
-        <p className="text-red-500 font-bold text-lg py-2">{errormessage}</p>
+        <p className="text-red-500 font-bold text-xs sm:text-sm md:text-lg py-1 sm:py-2">
+          {errormessage}
+        </p>
 
         {/* signin signup button */}
         <button
-          className="p-4 my-6 bg-red-700 w-full rounded-lg"
+          className="p-3 sm:p-4 my-4 sm:my-6 bg-red-700 w-full rounded-lg text-sm sm:text-base"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 
         {/* toggel feature */}
-        <p className="py-4 cursor-pointer text-red-500 hover:underline " onClick={toggeleSignInForm}>
-          {isSignInForm
-            ? "New to Netflix?  Sign up now "
-            : "Already registered? Sign In now"}
+        <p
+          className="py-2 sm:py-4 cursor-pointer text-red-500  text-xs sm:text-sm md:text-base"
+          onClick={toggeleSignInForm}
+        >
+           {isSignInForm
+    ? <><span className="text-red-500">New to Netflix?</span> <span className="text-white hover:underline">Sign up now</span></>
+    : <><span className="text-red-500">Already registered?</span> <span className="text-white hover:underline">Sign In now</span></>}
         </p>
       </form>
     </div>

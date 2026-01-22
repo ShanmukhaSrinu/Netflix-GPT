@@ -1,12 +1,27 @@
 import React from 'react'
 import { IMG_CDN_URL } from '../utils/constants'
 
-const MovieCard = ({posterpath}) => {
- 
+import VideoBackground from './VideoBackground'
+import { useDispatch } from 'react-redux'
+import { addTrailerMovie } from '../utils/moviesSlice'
+
+
+const MovieCard = ({movie}) => {
+ const {poster_path}=movie
+ const dispatch=useDispatch(null)
+  
+  const handleTrailer=()=>{
+   dispatch(addTrailerMovie(movie))
+  window.scrollTo({top:0,behavior:'smooth'})
+
+  }
+
+  if(!movie) return
+    // console.log(posterpath);
     
   return (
-    <div className='flex-shrink-0 h-64 md:h-80 xl:h-64 2xl:h-80 my-2 md:my-8 aspect-[2/3] bg-center bg-cover rounded-lg snap-start cursor-pointer active:border-2 active:border-white xl:active:border-0 xl:hover:h-72 2xl:hover:h-96 md:hover:my-0 md:hover:shadow-lg transition-all'>
-        <img src={IMG_CDN_URL+ posterpath}    alt="movie not found" />
+       <div className='flex-shrink-0 h-40 sm:h-48  md:h-64 lg:h-80 my-1 sm:my-2 md:my-4 aspect-[2/3] bg-center bg-cover rounded-lg snap-start cursor-pointer active:border-2 active:border-white hover:shadow-lg transition-all' onClick={handleTrailer}>
+      <img src={IMG_CDN_URL+ poster_path} className="w-full h-full object-cover rounded-lg" alt="movie not found" />
     </div>
 
   )

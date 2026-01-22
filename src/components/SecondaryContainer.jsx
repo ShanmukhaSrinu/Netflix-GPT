@@ -12,14 +12,19 @@ const SecondaryContainer = () => {
   
 
   return (
+ <div className='px-2 sm:px-4 md:pl-10 -mt-16 sm:-mt-20 md:-mt-25 relative z-20 bg-black'>
+      <Movieslist title={"Now Playing"} movies={nowplayingmovies}/>
+      <Movieslist title={"Popular"} movies={popularmovies}/>
+      <Movieslist title={"Top Rated"} movies={topratedmovies}/>
+      <Movieslist title={"Upcoming"} movies={upcomingmovies}/>
+    </div>
+  
+  )
+}
 
-    <div className='pl-10 -mt-25 relative z-20 bg-black'>
-    <Movieslist title={"Now Playing"} movies={nowplayingmovies}/>
-    <Movieslist title={"Popular"} movies={popularmovies}/>
-     <Movieslist title={"Top Rated"} movies={topratedmovies}/>
-      <Movieslist title={"Upcoming"} movies={upcomingmovies}/>   
+export default SecondaryContainer
 
-      {/*
+ {/*
       
       Movielist- Popular
         -cards * n
@@ -27,9 +32,3 @@ const SecondaryContainer = () => {
       Movielist- Top Rated
       movielist - Upcoming
        */}
-    </div>
-  
-  )
-}
-
-export default SecondaryContainer

@@ -5,6 +5,11 @@ const gptSlcie=createSlice({
     initialState:{
         showGptSearch:false,
         lang:"en",
+        movieNames:null,
+        movieResults:null,
+        selectedItem:null,
+       
+
     },
     reducers:{
         toggleGptSearchview:(state)=>{
@@ -12,7 +17,17 @@ const gptSlcie=createSlice({
         },
         changeLanguage:(state,action)=>{
             state.lang=action.payload
-        }
+        },
+        addGptMovieResults:(state,action)=>{
+            const {movieNames,movieResults}=action.payload
+            state.movieNames=movieNames
+            state.movieResults=movieResults
+        },
+       addSeletedItem:(state,action)=>{
+        state.selectedItem=action.payload
+       },
+       
+
 
 
     }
@@ -20,4 +35,4 @@ const gptSlcie=createSlice({
 
 export default gptSlcie.reducer
 
-export const {toggleGptSearchview,changeLanguage}=gptSlcie.actions
+export const {toggleGptSearchview,changeLanguage,addGptMovieResults,addSeletedItem}=gptSlcie.actions

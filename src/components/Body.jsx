@@ -1,10 +1,14 @@
 import Login from "./Login";
-import Browse from "./Browse";
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
+import About from "./About";
+import { lazy, Suspense } from "react";
 
 
 const Body = () => {
   
+  const Browse=lazy(()=>import("./Browse"))
+// 
+ 
   const appRouter = createBrowserRouter([
     {
       path: "/",
@@ -12,8 +16,12 @@ const Body = () => {
     },
     {
       path: "/browse",
-      element: <Browse />,
+      element: <Suspense fallback={<div>loading </div>}> <Browse /></Suspense>,
     },
+    {
+      path:"/about",
+      element:<About/>
+    }
   ]);
 
  

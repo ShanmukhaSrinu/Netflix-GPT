@@ -1,3 +1,6 @@
+  const TMDB_API_KEY=import.meta.env.VITE_TMDB_API_KEY
+ export const GROG_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
+ 
  export const NETFLIX_URL="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2026-01-09/consent/87b6a5c0-0104-4e96-a291-092c11350111/019ae4b5-d8fb-7693-90ba-7a61d24a8837/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
 
  export const NETFLIX_BACKGROUND_SRC="https://assets.nflxext.com/ffe/siteui/vlv3/e393bb3f-261f-43d1-99bb-16a157885615/web/IN-en-20260105-TRIFECTA-perspective_2802b120-4b8c-44a5-8fb9-617a728f4ec6_large.jpg"
@@ -8,7 +11,7 @@
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYTA5NDU1YTA2NWM0ZDY2NjEyZTRlYWYwNmM2ZjJkOCIsIm5iZiI6MTc2ODQwMzA3NS4yNTYsInN1YiI6IjY5NjdiMDgzNWVkYjU2NWFiZDY4NzZlNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uelecCCbACEcOHlxzQg3Q5HkqQuqcIYt4SzSeYNC8OY'
+    Authorization: 'Bearer ' + TMDB_API_KEY ,
   }
 };
 
@@ -29,3 +32,10 @@ export const  SUPPORTED_LANGUAGES=[
   {identifier:"tamil",name:"Tamil"},
   {identifier:"japanese",name:"Japanese"}
 ]
+
+export const GETINSTRGRAM="https://www.instagram.com/mr.shannu555/"
+export const GETLINKEDIN="www.linkedin.com/in/shanmukha-srinu-lanka"
+ export const PROFILEIMAGE = "https://avatars.githubusercontent.com/u/199047837?v=4";
+
+
+ 
