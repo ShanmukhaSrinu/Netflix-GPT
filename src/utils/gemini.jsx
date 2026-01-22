@@ -1,5 +1,6 @@
 import OpenAI from "openai";
-import { GROG_API_KEY } from "./constants"; // Must use { } for named exports
+
+const GROG_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 
 // Debugging: This will show in your console if the key is failing to load
 // if (!GROG_API_KEY) {
