@@ -8,7 +8,7 @@ export const NETFLIX_URL="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer ' + import.meta.env.VITE_TMDB_API_KEY ,
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYTA5NDU1YTA2NWM0ZDY2NjEyZTRlYWYwNmM2ZjJkOCIsIm5iZiI6MTc2ODQwMzA3NS4yNTYsInN1YiI6IjY5NjdiMDgzNWVkYjU2NWFiZDY4NzZlNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uelecCCbACEcOHlxzQg3Q5HkqQuqcIYt4SzSeYNC8OY'  ,
   }
 };
 
