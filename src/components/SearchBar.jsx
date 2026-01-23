@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
 import lang from "../utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
-// import groq from "../utils/gemini";
 import { API_OPTIONS } from "../utils/constants";
 import { addGptMovieResults, addSeletedItem} from "../utils/gptSlice";
-import groq from "../utils/gemini";
+
 
 
 
@@ -30,29 +29,53 @@ const SearchBar = () => {
 
   // In your SearchBar component
 
-
-
-
-
-  const getMovieRecommendationsSystem=async (gptQuery)=>{
-    try{
-
-     const response= await groq.chat.completions.create({
+const getMovieRecommendationsSystem = async (gptQuery) => {
+  try {
+    const response = await fetch("/.netlify/functions/groq-proxy", {
+      method: "POST",
+      body: JSON.stringify({
         messages: [{ role: "user", content: gptQuery }],
         model: "llama-3.3-70b-versatile",
-      });
-      return response
+      }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    if (error?.status === 429) {
+      return await fetch("/.netlify/functions/groq-proxy", {
+        method: "POST",
+        body: JSON.stringify({
+          messages: [{ role: "user", content: gptQuery }],
+          model: "llama-3.1-8b-instant",
+        }),
+      }).then((res) => res.json());
     }
-    catch(error){
-      if(error?.status===429){
-        return await groq.chat.completions.create({
-        messages: [{ role: "user", content: gptQuery }],
-        model: "llama-3.1-8b-instant", // The "Backup"
-      }); 
-      }
-      throw error
-    }
+    throw error;
   }
+};
+
+
+
+
+  // const getMovieRecommendationsSystem=async (gptQuery)=>{
+  //   try{
+
+  //    const response= await groq.chat.completions.create({
+  //       messages: [{ role: "user", content: gptQuery }],
+  //       model: "llama-3.3-70b-versatile",
+  //     });
+  //     return response
+  //   }
+  //   catch(error){
+  //     if(error?.status===429){
+  //       return await groq.chat.completions.create({
+  //       messages: [{ role: "user", content: gptQuery }],
+  //       model: "llama-3.1-8b-instant", // The "Backup"
+  //     }); 
+  //     }
+  //     throw error
+  //   }
+  // }
 
  const handleGptSearchClick = async () => {
   if (isLoading) return;
