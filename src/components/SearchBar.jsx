@@ -1,9 +1,13 @@
 import React, { useRef, useState } from "react";
 import lang from "../utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
-import groq from "../utils/gemini";
+// import groq from "../utils/gemini";
 import { API_OPTIONS } from "../utils/constants";
 import { addGptMovieResults, addSeletedItem} from "../utils/gptSlice";
+import groq from "../utils/gemini";
+
+
+
 
 
 
@@ -23,6 +27,12 @@ const SearchBar = () => {
     
     
   }
+
+  // In your SearchBar component
+
+
+
+
 
   const getMovieRecommendationsSystem=async (gptQuery)=>{
     try{
