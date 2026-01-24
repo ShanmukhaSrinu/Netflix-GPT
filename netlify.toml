@@ -2,3 +2,9 @@
   command = "npm run build"
   functions = "netlify/functions"
   publish = "dist"  # or "build" or your Vite output folder
+
+
+  [[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
