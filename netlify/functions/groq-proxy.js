@@ -2,7 +2,7 @@ const OpenAI = require("openai");
 
 exports.handler = async (event) => {
   const groq = new OpenAI({
-    apiKey: process.env.GROQ_API_KEY, // Set this in Netlify's dashboard
+    apiKey: process.env.GROQ_API_KEY, // Set in Netlify dashboard
     baseURL: "https://api.groq.com/openai/v1",
   });
 
