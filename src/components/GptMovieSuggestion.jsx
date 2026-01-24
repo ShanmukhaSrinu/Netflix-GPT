@@ -1,31 +1,35 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef} from "react";
 import { useSelector } from "react-redux";
 import GptmoviesList from "./GptMoviesList";
 import { IMG_CDN_URL } from "../utils/constants";
 import ShimmerUi from "./ShimmerUi";
 
 const GptMovieSuggestion = () => {
+
   const { movieNames, movieResults } = useSelector((store) => store.gpt);
   
   const selectedItem = useSelector(Store => Store.gpt.selectedItem)
 
   const selectedItemRef=useRef(null)
 
-
   useEffect(()=>{
     if(selectedItem && selectedItemRef.current){
       selectedItemRef.current.scrollIntoView({behavior:"smooth"})
     }
+ 
   },[selectedItem])
 
+  
     // early return
-     if (!movieNames || !movieResults) return null
+     if (!movieNames || !movieResults) return  null
  
 
   // console.log(movieNames);
   
   // Filter out undefined values
   const validMovies = movieResults.filter(movie => movie !== undefined);
+
+
 
   return (
 

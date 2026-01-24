@@ -11,3 +11,20 @@
     scrollbar-width: none;     /* Firefox */
   }
 }
+
+/* Add to your global CSS file */
+@keyframes shimmer {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse {
+  animation: shimmer 1.5s infinite ease-in-out;
+}

@@ -6,19 +6,13 @@ import { addGptMovieResults, addSeletedItem} from "../utils/gptSlice";
 // import groq from "../utils/gemini";
 
 
-
-
-
-
-
-
 const SearchBar = () => {
   const [isLoading,setIsLoading]=useState(false)
  const dispatch=useDispatch()
   const langKey = useSelector((store) => store.gpt.lang);
   const searchText = useRef(null);
 
-  // search movie in TMDB database 
+  // search movie in TMDB database with year and movie name
   const searchMovieTMDB=async (movie,year)=>{
     const data=await fetch("https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1&year="+year ,API_OPTIONS)
     const json=await data.json()
@@ -27,8 +21,6 @@ const SearchBar = () => {
     
     
   }
-
-  // In your SearchBar component
 
 const getMovieRecommendationsSystem = async (gptQuery) => {
   try {
@@ -54,9 +46,6 @@ const getMovieRecommendationsSystem = async (gptQuery) => {
     throw error;
   }
 };
-
-
-
 
   // const getMovieRecommendationsSystem=async (gptQuery)=>{
   //   try{
