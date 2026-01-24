@@ -129,7 +129,7 @@ const Login = () => {
         <input
           ref={password}
           type="password"
-          placeholder="Eg: Shannu123@"
+          placeholder="Eg: Shannu123@ "
           className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-gray-700 rounded-sm text-sm sm:text-base"
         />
         <p className="text-red-500 font-bold text-xs sm:text-sm md:text-lg py-1 sm:py-2">

@@ -40,14 +40,18 @@
  - GPT Search page
  - GPT Search Bar
  - (FEATURE) -Multi-Language Feature in our App
- - Get GROQ ai api key
+ - Get GROQ ai api key( and using two models)
  - fetched gpt movie suggestions form TMDB 
  - created gpt slice added data 
  - create gptmovieslist component
- - added .env file
+ - added .env file 
  - build Moviesnotvisible component
  - build about page
  - make it mobile responsive
+ - added Shimmer UI
+ - added Error page and routing
+ - created netlify function to hide the api key
+
  
 
 

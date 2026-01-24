@@ -74,7 +74,7 @@ const getMovieRecommendationsSystem = async (gptQuery) => {
   // In your SearchBar.jsx
 const gptQuery = 
   "Act as a Movie Recommendation System for: " + searchText.current.value + 
-  ". Suggest 10 movies. IMPORTANT: Provide results in this EXACT format: " +
+  ". Suggest 10 to 15 . IMPORTANT: Provide results in this EXACT format: " +
   "Movie Name (Year), Movie Name (Year). " +
   "Example: Sholay (1975), Inception (2010), Tiger 3 (2023).";
 
