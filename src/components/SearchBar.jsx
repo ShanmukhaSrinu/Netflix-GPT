@@ -88,11 +88,11 @@ const gptQuery =
 
     // 2. Turn the string into an Array
     // This splits "Movie (2010), Movie (2020)" into ["Movie (2010)", "Movie (2020)"]
-    console.log(rawText);
+    // console.log(rawText);
     
     const gptMovies = rawText.split(",").map((m) => m.trim());
 
-    console.log(gptMovies)
+    // console.log(gptMovies)
     // 3. Create a list of TMDB search promises
     const promiseArray = gptMovies.map((movieString) => {
       
