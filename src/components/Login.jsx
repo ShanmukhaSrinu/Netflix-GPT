@@ -168,7 +168,7 @@ const Login = () => {
           className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-white text-black rounded-lg text-sm sm:text-base flex items-center justify-center gap-2"
           onClick={handleGoogleSignIn}
         >
-          
+          <img className="w-7" src="https://tse3.mm.bing.net/th/id/OIP.uBYsSL7JDekYP3VpxWZvYQHaHa?pid=Api&P=0&h=180" alt="" />
           Continue with Google
         
         </button>
