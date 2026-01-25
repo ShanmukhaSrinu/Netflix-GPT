@@ -5,11 +5,14 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signInWithPopup,
+  GoogleAuthProvider
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userslice";
 import { NETFLIX_BACKGROUND_SRC, NETFLIX_BACKGROUND_SRCSET } from "../utils/constants";
+
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -23,6 +26,20 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
 
+  
+    const handleGoogleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
+      })
+      .catch((error) => {
+        seterrormessage(error.message);
+      });
+  };
   // toggel
   const toggeleSignInForm = () => {
     setisSignInForm(!isSignInForm);
@@ -143,6 +160,19 @@ const Login = () => {
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
+
+
+     {/* Google Sign-In Button */}
+        <button
+          type="button"
+          className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-white text-black rounded-lg text-sm sm:text-base flex items-center justify-center gap-2"
+          onClick={handleGoogleSignIn}
+        >
+          
+          Continue with Google
+        
+        </button>
+
 
         {/* toggel feature */}
         <p
