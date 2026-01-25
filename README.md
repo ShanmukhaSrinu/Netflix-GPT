@@ -51,6 +51,7 @@
  - added Shimmer UI
  - added Error page and routing
  - created netlify function to hide the api key
+ - added signin with google 
 
  
 

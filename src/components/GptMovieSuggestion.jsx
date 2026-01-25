@@ -24,7 +24,7 @@ const GptMovieSuggestion = () => {
      if (!movieNames || !movieResults) return  null
  
 
-  // console.log(movieNames);
+
   
   // Filter out undefined values
   const validMovies = movieResults.filter(movie => movie !== undefined);

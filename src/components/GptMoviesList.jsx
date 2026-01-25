@@ -13,7 +13,7 @@ const GptmoviesList = ({ movies }) => {
         dispatch(addSeletedItem(movies))
     }
     if (!movies) return
-    // console.log(posterpath);
+  
 
 
     return (
